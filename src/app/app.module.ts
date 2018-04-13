@@ -3,6 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import {CdkTableModule} from '@angular/cdk/table';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from "@angular/common/http";
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -39,15 +40,19 @@ import {
 } from '@angular/material';
 
 import 'hammerjs';
+
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
-
-
+import { StudentComponentComponent } from './component/student-component/student-component.component';
+import { AppRoutingModule } from './app.routing.module';
+import {studentService} from './shared/service/studentservice/student.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    StudentComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +60,11 @@ import { HeaderComponent } from './component/header/header.component';
     MatToolbarModule,
     CdkTableModule,
     MatExpansionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [studentService],
   bootstrap: [AppComponent]
 
 })
