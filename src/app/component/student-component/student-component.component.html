@@ -1,7 +1,7 @@
 <div class="col-md-6">
-  <h2> User Details</h2>
+  <h2> Student Details</h2>
   
-  <table class="table table-striped">
+  <table class="table table-striped" style="width:100%">
     <thead>
     <tr>
       <th class="hidden">Id</th>
@@ -11,16 +11,19 @@
       <th>DOJ</th>
       <th>Session</th>
       <th>Phone</th>
+      <th>Action</th>
     </tr>
   </thead>
     <tbody>
-    <tr *ngFor="let student of studentDtos">
+    <tr *ngFor="let student of studentDtos" >
       <td class="hidden"></td>
-      <td>{{student.fnamme}</td>
+      <td>{{student.fname}}</td>
       <td>{{student.lastname}}</td>
-      <td>{{student.dob}}</td>
-      <td>{{student.doj}}</td>
-      <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete User</button></td>
+      <td>{{student.dob | date:'dd-MM-yyyy'}}</td>
+      <td>{{student.doj | date:'dd-MM-yyyy'}}</td>
+      <td>{{student.session}}</td>
+      <td>{{student.phone}}</td>
+      <td><button class="btn btn-secondary" (click)="openStudentDailog(student)"> Edit Student</button></td>
     </tr>
     </tbody>
   </table>
